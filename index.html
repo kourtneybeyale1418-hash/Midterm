@@ -3,72 +3,742 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Mrs. K's 1-Year-Old Classroom - A safe, nurturing learning environment for toddlers">
     <title>Mrs. K's 1-Year-Old Classroom</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Comic Sans MS', Arial, sans-serif; color: #333; }
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+        }
         
-        nav { background: linear-gradient(135deg, #FFD93D, #6BCB77); padding: 1rem; position: sticky; top: 0; z-index: 100; }
-        nav ul { list-style: none; display: flex; justify-content: center; flex-wrap: wrap; gap: 1rem; }
-        nav a { color: white; text-decoration: none; padding: 0.5rem 1rem; border-radius: 20px; font-weight: bold; }
-        nav a:hover { background: rgba(255,255,255,0.3); }
-        
-        .page { display: none; }
-        .page.active { display: block; }
-        
-        .hero { background: linear-gradient(135deg, #FFD93D, #6FDCE3); padding: 4rem 2rem; text-align: center; color: white; }
-        .hero h1 { font-size: 2.5rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.2rem; margin-bottom: 2rem; }
-        .btn { background: #FF6B9D; color: white; padding: 1rem 2rem; border: none; border-radius: 30px; font-size: 1.1rem; cursor: pointer; }
-        
-        .container { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem; }
-        .title { text-align: center; color: #FF6B9D; font-size: 2.5rem; margin-bottom: 2rem; }
-        
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
-        .card { background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .card h3 { color: #FF6B9D; margin-bottom: 1rem; }
-        
-        table { width: 100%; border-collapse: collapse; }
-        th { background: #FFD93D; padding: 1rem; text-align: left; }
-        td { background: white; padding: 1rem; border-bottom: 1px solid #eee; }
-        
-        .tool-card { background: white; padding: 2rem; margin-bottom: 2rem; border-radius: 15px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); }
-        .tool-card h3 { color: #FF6B9D; margin-bottom: 1rem; }
-        .purpose { background: #FFF8E7; padding: 1rem; border-radius: 10px; margin: 1rem 0; }
-        .support { background: #E8F5E9; padding: 1rem; border-radius: 10px; margin: 1rem 0; }
-        
-        .calendar { display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px; margin: 2rem 0; }
-        .cal-day { background: #f5f5f5; padding: 0.8rem; border-radius: 8px; min-height: 70px; }
-        .cal-header { background: #FFD93D; color: white; padding: 0.5rem; text-align: center; font-weight: bold; border-radius: 8px; }
-        .has-event { background: #E8F5E9; border: 2px solid #6BCB77; }
-        .event { font-size: 0.75rem; color: #FF6B9D; font-weight: bold; margin-top: 0.3rem; }
-        
-        .video-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .video-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        .video-wrap { position: relative; padding-bottom: 56.25%; height: 0; }
-        .video-wrap iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
-        .video-info { padding: 1.5rem; }
-        
-        .blog-post { background: white; padding: 2.5rem; margin-bottom: 2rem; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); border-left: 6px solid #6BCB77; }
-        .blog-header { border-bottom: 3px solid #FFF8E7; padding-bottom: 1rem; margin-bottom: 1.5rem; }
-        .blog-title { color: #FF6B9D; font-size: 2rem; margin-bottom: 0.5rem; }
-        .blog-date { color: #6BCB77; font-size: 1rem; font-weight: bold; }
-        .blog-content { line-height: 1.8; font-size: 1.1rem; }
-        .blog-content h3 { color: #6BCB77; margin: 1.5rem 0 1rem; }
-        .blog-content p { margin-bottom: 1rem; }
-        .blog-content ul { margin: 1rem 0 1rem 2rem; }
-        .blog-content li { margin-bottom: 0.5rem; }
-        .highlight-box { background: #FFF8E7; padding: 1.5rem; border-radius: 15px; margin: 1.5rem 0; border-left: 4px solid #FFD93D; }
-        .signature { font-style: italic; color: #FF6B9D; margin-top: 2rem; text-align: right; }
-        
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body { 
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            color: #1a1a1a;
+            background-color: #fff;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        /* Accessibility: Focus styles */
+        button:focus, a:focus, input:focus {
+            outline: 3px solid #FF6B9D;
+            outline-offset: 2px;
+        }
+
+        /* Skip to main content link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #FF6B9D;
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+            font-weight: bold;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Language Selector */
+        .language-selector {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 99;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            padding: 0.8rem;
+            border: 2px solid #FFD93D;
+        }
+
+        .lang-label {
+            display: block;
+            font-weight: bold;
+            color: #FF6B9D;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .lang-btn {
+            background: #FF6B9D;
+            color: white;
+            border: 2px solid #FF6B9D;
+            padding: 0.6rem 0.9rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.85rem;
+            transition: all 0.3s ease;
+            margin: 0.3rem;
+            display: inline-block;
+        }
+
+        .lang-btn:hover {
+            background: #FF4A7D;
+            border-color: #FF4A7D;
+            transform: scale(1.05);
+        }
+
+        .lang-btn:focus {
+            outline: 3px solid #6BCB77;
+            outline-offset: 2px;
+        }
+
+        .lang-btn.active {
+            background: #6BCB77;
+            border-color: #6BCB77;
+        }
+
+        /* Navigation */
+        nav {
+            background: linear-gradient(135deg, #FFD93D, #6BCB77);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        nav a {
+            color: #1a1a1a;
+            text-decoration: none;
+            padding: 0.7rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: rgba(255,255,255,0.3);
+            border: 2px solid transparent;
+        }
+
+        nav a:hover, nav a:focus {
+            background: rgba(255,255,255,0.6);
+            transform: translateY(-2px);
+            border-color: #1a1a1a;
+        }
+
+        /* Page visibility */
+        .page {
+            display: none;
+        }
+
+        .page.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #FFD93D, #6FDCE3);
+            padding: 3rem 2rem;
+            text-align: center;
+            color: #1a1a1a;
+        }
+
+        .hero h1 {
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            margin-bottom: 2rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Buttons */
+        .btn {
+            background: #FF6B9D;
+            color: white;
+            padding: 1rem 2rem;
+            border: 2px solid #FF6B9D;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover, .btn:focus {
+            background: #FF4A7D;
+            border-color: #FF4A7D;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(255,107,157,0.4);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .title {
+            text-align: center;
+            color: #FF6B9D;
+            font-size: clamp(2rem, 5vw, 2.8rem);
+            margin-bottom: 2rem;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #6BCB77;
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            font-weight: bold;
+        }
+
+        /* Grid layouts */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover, .card:focus-within {
+            border-color: #FFD93D;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .card h3 {
+            color: #FF6B9D;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .card p {
+            color: #333;
+            line-height: 1.8;
+        }
+
+        /* Table */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+        }
+
+        th {
+            background: #FFD93D;
+            color: #1a1a1a;
+            padding: 1rem;
+            text-align: left;
+            font-weight: bold;
+            border: 2px solid #FFC700;
+        }
+
+        td {
+            background: white;
+            padding: 1rem;
+            border: 1px solid #e0e0e0;
+        }
+
+        tr:nth-child(even) td {
+            background: #f9f9f9;
+        }
+
+        tr:hover td {
+            background: #FFF8E7;
+        }
+
+        /* Tool Cards */
+        .tool-card {
+            background: white;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-left: 6px solid #FFD93D;
+            transition: all 0.3s ease;
+        }
+
+        .tool-card:hover, .tool-card:focus-within {
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            transform: translateX(5px);
+        }
+
+        .tool-card h3 {
+            color: #FF6B9D;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .purpose, .support {
+            padding: 1rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            font-weight: 500;
+        }
+
+        .purpose {
+            background: #FFF8E7;
+            border-left: 4px solid #FFD93D;
+        }
+
+        .support {
+            background: #E8F5E9;
+            border-left: 4px solid #6BCB77;
+        }
+
+        /* Calendar */
+        .calendar {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 8px;
+            margin: 2rem 0;
+        }
+
+        .cal-header {
+            background: #FFD93D;
+            color: #1a1a1a;
+            padding: 1rem;
+            text-align: center;
+            font-weight: bold;
+            border-radius: 8px;
+            border: 2px solid #FFC700;
+        }
+
+        .cal-day {
+            background: #f5f5f5;
+            padding: 1rem;
+            border-radius: 8px;
+            min-height: 80px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .cal-day:hover {
+            background: #FFF8E7;
+            border-color: #FFD93D;
+        }
+
+        .has-event {
+            background: #E8F5E9;
+            border-color: #6BCB77;
+            border-width: 2px;
+            font-weight: bold;
+        }
+
+        .event {
+            font-size: 0.85rem;
+            color: #FF6B9D;
+            font-weight: bold;
+            margin-top: 0.5rem;
+        }
+
+        /* Videos */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .video-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .video-card:hover, .video-card:focus-within {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .video-wrap {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            background: #000;
+        }
+
+        .video-wrap iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .video-info {
+            padding: 1.5rem;
+        }
+
+        .video-info h3 {
+            color: #FF6B9D;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        /* Blog */
+        .blog-post {
+            background: white;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-left: 6px solid #6BCB77;
+        }
+
+        .blog-header {
+            border-bottom: 3px solid #FFF8E7;
+            padding-bottom: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-title {
+            color: #FF6B9D;
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+
+        .blog-date {
+            color: #6BCB77;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        .blog-content {
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        .blog-content h3 {
+            color: #6BCB77;
+            margin: 1.5rem 0 1rem;
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .blog-content p {
+            margin-bottom: 1rem;
+        }
+
+        .blog-content ul {
+            margin: 1rem 0 1rem 2rem;
+        }
+
+        .blog-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight-box {
+            background: #FFF8E7;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            border-left: 4px solid #FFD93D;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            background: white;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 12px;
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+
+        .faq-item:hover {
+            border-color: #FFD93D;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .faq-question {
+            color: #FF6B9D;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+        }
+
+        .faq-question:hover, .faq-question:focus {
+            color: #FF4A7D;
+        }
+
+        .faq-toggle {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .faq-toggle.open {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            display: none;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 2px solid #FFF8E7;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .faq-answer.open {
+            display: block;
+        }
+
+        /* Resources Links */
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .link-box {
+            background: #FFF9C4;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .link-box:hover {
+            border-color: #FFD93D;
+            transform: translateY(-3px);
+        }
+
+        .link-box h4 {
+            color: #FF6B9D;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .link-box a {
+            display: block;
+            color: #0066cc;
+            text-decoration: none;
+            margin-bottom: 0.8rem;
+            padding: 0.5rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .link-box a:hover, .link-box a:focus {
+            background: #FFD93D;
+            color: #1a1a1a;
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #FFD93D, #6BCB77);
+            color: #1a1a1a;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+            font-weight: bold;
+        }
+
+        footer a {
+            color: #1a1a1a;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover, footer a:focus {
+            text-decoration: underline;
+        }
+
+        /* Accessibility: High contrast mode */
+        @media (prefers-contrast: more) {
+            .card {
+                border: 3px solid #1a1a1a;
+            }
+            nav a {
+                border: 2px solid #1a1a1a;
+            }
+        }
+
+        /* Accessibility: Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 1.8rem; }
-            nav a { font-size: 0.85rem; padding: 0.4rem 0.7rem; }
+            .container {
+                padding: 1rem;
+            }
+
+            .hero {
+                padding: 2rem 1rem;
+            }
+
+            .title {
+                font-size: 1.8rem;
+            }
+
+            nav ul {
+                gap: 0.5rem;
+            }
+
+            nav a {
+                font-size: 0.9rem;
+                padding: 0.6rem 0.8rem;
+            }
+
+            .grid, .links-grid {
+                grid-template-columns: 1fr;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+
+            th, td {
+                padding: 0.75rem;
+            }
+
+            .blog-title {
+                font-size: 1.5rem;
+            }
+
+            .calendar {
+                gap: 4px;
+            }
+
+            .cal-day {
+                min-height: 60px;
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+
+            .event {
+                font-size: 0.7rem;
+            }
+
+            .language-selector {
+                bottom: 10px;
+                right: 10px;
+            }
+
+            .lang-btn {
+                padding: 0.5rem 0.8rem;
+                font-size: 0.8rem;
+                margin: 0.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav a {
+                font-size: 0.75rem;
+                padding: 0.5rem 0.6rem;
+            }
+
+            .title {
+                font-size: 1.5rem;
+                margin-bottom: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 1.5rem;
+            }
+
+            .card, .tool-card {
+                padding: 1.5rem;
+            }
+
+            .blog-post {
+                padding: 1.5rem;
+            }
+
+            body {
+                font-size: 15px;
+            }
+        }
+
+        /* Print styles */
+        @media print {
+            nav, footer, .language-selector {
+                display: none;
+            }
+
+            body {
+                background: white;
+            }
+
+            .card, .tool-card {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid #ccc;
+            }
         }
     </style>
 </head>
 <body>
-    <nav>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Language Selector -->
+    <div class="language-selector" role="region" aria-label="Language Selection">
+        <span class="lang-label">🌐 Language:</span>
+        <button class="lang-btn active" onclick="setLanguage('en')">English</button>
+        <button class="lang-btn" onclick="setLanguage('es')">Español</button>
+        <button class="lang-btn" onclick="setLanguage('fr')">Français</button>
+    </div>
+
+    <nav role="navigation" aria-label="Main Navigation">
         <ul>
             <li><a href="#" onclick="show('home')">Home</a></li>
             <li><a href="#" onclick="show('about')">About</a></li>
@@ -76,385 +746,74 @@
             <li><a href="#" onclick="show('tools')">Tools</a></li>
             <li><a href="#" onclick="show('assignments')">Assignments</a></li>
             <li><a href="#" onclick="show('resources')">Resources</a></li>
-            <li><a href="#" onclick="show('blog')">News/Blog</a></li>
+            <li><a href="#" onclick="show('blog')">News</a></li>
+            <li><a href="#" onclick="show('faq')">FAQ</a></li>
             <li><a href="#" onclick="show('multimedia')">Videos</a></li>
         </ul>
     </nav>
 
-    <div id="home" class="page active">
-        <div class="hero">
-            <h1>Welcome to Mrs. K's 1-Year-Old Classroom! 🎈</h1>
-            <p>A safe, nurturing, and fun environment where your little ones learn and grow.</p>
-            <button class="btn" onclick="show('about')">Meet Mrs. K</button>
-        </div>
-        <div class="container">
-            <div class="grid">
-                <div class="card" style="text-align: center;">
-                    <div style="font-size: 3rem;">🧸</div>
-                    <h3>Play & Learn</h3>
-                    <p>Safe, engaging play-based learning</p>
-                </div>
-                <div class="card" style="text-align: center;">
-                    <div style="font-size: 3rem;">💡</div>
-                    <h3>Whole-Child Growth</h3>
-                    <p>Academic, social-emotional, and physical development</p>
-                </div>
-                <div class="card" style="text-align: center;">
-                    <div style="font-size: 3rem;">👪</div>
-                    <h3>Family Involvement</h3>
-                    <p>Strong parent communication</p>
-                </div>
+    <main id="main-content">
+        <!-- HOME PAGE -->
+        <div id="home" class="page active">
+            <div class="hero" role="banner">
+                <h1 data-en="Welcome to Mrs. K's 1-Year-Old Classroom! 🎈" data-es="¡Bienvenido al Aula de 1 Año de la Sra. K! 🎈" data-fr="Bienvenue en classe de 1 an de Mme K! 🎈">Welcome to Mrs. K's 1-Year-Old Classroom! 🎈</h1>
+                <p data-en="A safe, nurturing, and fun environment where your little ones learn and grow." data-es="Un ambiente seguro, nutritivo y divertido donde sus pequeños aprenden y crecen." data-fr="Un environnement sûr, bienveillant et amusant où votre petit apprend et grandit.">A safe, nurturing, and fun environment where your little ones learn and grow.</p>
+                <button class="btn" onclick="show('about')">Meet Mrs. K</button>
             </div>
-        </div>
-    </div>
-
-    <div id="about" class="page">
-        <div class="container">
-            <h1 class="title">About Mrs. K</h1>
-            <div class="card" style="background: #E3F2FD; padding: 2rem; margin-bottom: 2rem;">
-                <p style="font-size: 1.1rem;">"We strive to meet the needs of the whole child by providing a culturally sensitive, safe, and healthy environment. Every child develops academically, cognitively, socially-emotionally, and physically."</p>
-            </div>
-            <div class="card">
-                <h3>Meet Mrs. K</h3>
-                <p><strong>Experience:</strong> Years of education experience</p>
-                <p><strong>Fun Fact:</strong> "I love reading storybooks and doing crafts with toddlers!"</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="schedule" class="page">
-        <div class="container">
-            <h1 class="title">Daily Schedule 📅</h1>
-            <table>
-                <tr><th>Time</th><th>Activity</th><th>Icon</th></tr>
-                <tr><td>7:00 AM</td><td>Drop Off</td><td>🚪</td></tr>
-                <tr><td>8:00 AM</td><td>Breakfast</td><td>🍽️</td></tr>
-                <tr><td>8:30 AM</td><td>Free Play</td><td>🧸</td></tr>
-                <tr><td>9:00 AM</td><td>Playground</td><td>🛝</td></tr>
-                <tr><td>10:00 AM</td><td>Free Play</td><td>🎨</td></tr>
-                <tr><td>11:00 AM</td><td>Lunch</td><td>🥪</td></tr>
-                <tr><td>12:00 PM</td><td>Nap Time</td><td>💤</td></tr>
-                <tr><td>2:00 PM</td><td>Wake Up / Snack</td><td>🍎</td></tr>
-                <tr><td>3:00 PM</td><td>Art Activity</td><td>✂️</td></tr>
-                <tr><td>4:00 PM</td><td>Music</td><td>🎵</td></tr>
-                <tr><td>5:00 PM</td><td>Free Play / Snack</td><td>🧩</td></tr>
-                <tr><td>6:00 PM</td><td>Pickup</td><td>👋</td></tr>
-            </table>
-        </div>
-    </div>
-
-    <div id="tools" class="page">
-        <div class="container">
-            <h1 class="title">Classroom Tools 🛠️</h1>
-            
-            <h2 style="color: #6BCB77; text-align: center; margin-bottom: 2rem;">📝 Paper-Based Tools</h2>
-            
-            <div class="tool-card">
-                <h3>📚 Picture Books & Story Cards</h3>
-                <p>Interactive books that develop language and imagination.</p>
-                <div class="purpose"><strong>Purpose:</strong> Builds literacy, vocabulary, and listening skills.</div>
-                <div class="support"><strong>Parent Support:</strong> Read together daily for 10-15 minutes.</div>
-            </div>
-
-            <div class="tool-card">
-                <h3>🎨 Art Supplies</h3>
-                <p>Safe, washable materials for creative expression.</p>
-                <div class="purpose"><strong>Purpose:</strong> Develops fine motor skills and creativity.</div>
-                <div class="support"><strong>Parent Support:</strong> Set up a safe art space. Display artwork proudly.</div>
-            </div>
-
-            <div class="tool-card">
-                <h3>🧩 Puzzles & Shape Sorters</h3>
-                <p>Large-piece puzzles perfect for little hands.</p>
-                <div class="purpose"><strong>Purpose:</strong> Teaches problem-solving and spatial awareness.</div>
-                <div class="support"><strong>Parent Support:</strong> Start with simple puzzles. Celebrate successes!</div>
-            </div>
-
-            <h2 style="color: #6BCB77; text-align: center; margin: 3rem 0 2rem;">💻 Digital Tools</h2>
-
-            <div class="tool-card">
-                <h3>📧 Email Updates</h3>
-                <p>Weekly newsletters with classroom highlights and tips.</p>
-                <div class="purpose"><strong>Purpose:</strong> Keeps families informed and engaged.</div>
-                <div class="support"><strong>Parent Support:</strong> Check email twice weekly.</div>
-            </div>
-
-            <div class="tool-card">
-                <h3>🎵 Educational Videos</h3>
-                <p>Curated age-appropriate songs and stories.</p>
-                <div class="purpose"><strong>Purpose:</strong> Reinforces classroom learning.</div>
-                <div class="support"><strong>Parent Support:</strong> Limit to 15-20 minutes daily. Watch together.</div>
-            </div>
-        </div>
-    </div>
-
-    <div id="assignments" class="page">
-        <div class="container">
-            <h1 class="title">Assignments & Important Dates 📅</h1>
-            
-            <div class="card">
-                <h2 style="color: #6BCB77; text-align: center; margin-bottom: 1rem;">November 2025</h2>
-                <div class="calendar">
-                    <div class="cal-header">Sun</div>
-                    <div class="cal-header">Mon</div>
-                    <div class="cal-header">Tue</div>
-                    <div class="cal-header">Wed</div>
-                    <div class="cal-header">Thu</div>
-                    <div class="cal-header">Fri</div>
-                    <div class="cal-header">Sat</div>
-                    
-                    <div class="cal-day"></div>
-                    <div class="cal-day"></div>
-                    <div class="cal-day"></div>
-                    <div class="cal-day"></div>
-                    <div class="cal-day"></div>
-                    <div class="cal-day"></div>
-                    <div class="cal-day">1</div>
-                    <div class="cal-day">2</div>
-                    <div class="cal-day">3</div>
-                    <div class="cal-day">4</div>
-                    <div class="cal-day">5</div>
-                    <div class="cal-day">6</div>
-                    <div class="cal-day">7</div>
-                    <div class="cal-day">8</div>
-                    <div class="cal-day">9</div>
-                    <div class="cal-day has-event">10<div class="event">📸 Picture Day</div></div>
-                    <div class="cal-day">11</div>
-                    <div class="cal-day">12</div>
-                    <div class="cal-day">13</div>
-                    <div class="cal-day">14</div>
-                    <div class="cal-day has-event">15<div class="event">🍂 Fall Party</div></div>
-                    <div class="cal-day">16</div>
-                    <div class="cal-day">17</div>
-                    <div class="cal-day">18</div>
-                    <div class="cal-day">19</div>
-                    <div class="cal-day">20</div>
-                    <div class="cal-day">21</div>
-                    <div class="cal-day">22</div>
-                    <div class="cal-day">23</div>
-                    <div class="cal-day">24</div>
-                    <div class="cal-day has-event">25<div class="event">🎨 Art Show</div></div>
-                    <div class="cal-day">26</div>
-                    <div class="cal-day has-event">27<div class="event">🦃 Closed</div></div>
-                    <div class="cal-day has-event">28<div class="event">🦃 Closed</div></div>
-                    <div class="cal-day">29</div>
-                    <div class="cal-day">30</div>
-                </div>
-            </div>
-
-            <h2 style="color: #FF6B9D; margin: 3rem 0 2rem; text-align: center;">Upcoming Activities</h2>
-
-            <div class="card" style="border-left: 5px solid #FFD93D;">
-                <h3>📸 Picture Day - November 10</h3>
-                <p><strong>Details:</strong> Professional photos. Dress your child in their favorite outfit!</p>
-                <p><strong>Action:</strong> Return order form by Nov 8</p>
-            </div>
-
-            <div class="card" style="border-left: 5px solid #FFD93D;">
-                <h3>🍂 Fall Celebration - November 15</h3>
-                <p><strong>Details:</strong> Fall-themed party with crafts and snacks.</p>
-                <p><strong>Action:</strong> Optional - send fall snack to share</p>
-            </div>
-
-            <div class="card" style="border-left: 5px solid #FFD93D;">
-                <h3>🎨 Art Show - November 25</h3>
-                <p><strong>Details:</strong> Display of student artwork. Parents welcome 3-5 PM.</p>
-                <p><strong>Action:</strong> RSVP by Nov 20</p>
-            </div>
-
-            <div class="card" style="border-left: 5px solid #FFD93D;">
-                <h3>🦃 Thanksgiving Break - Nov 27-28</h3>
-                <p><strong>Details:</strong> Classroom closed for holiday.</p>
-                <p><strong>Action:</strong> Enjoy family time!</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="resources" class="page">
-        <div class="container">
-            <h1 class="title">Parent Resources 📚</h1>
-            <div class="grid">
-                <div class="card" style="background: #FFF9C4;">
-                    <h3>Contact Information</h3>
-                    <p>📧 krbeyale26@my.sanjuancollege.edu</p>
-                    <p>📞 555-555-5555</p>
-                    <p>🕐 Hours: 7 AM - 6 PM</p>
-                </div>
-                <div class="card" style="background: #FFF9C4;">
-                    <h3>Parent Tips</h3>
-                    <p>💤 Consistent schedules</p>
-                    <p>🎨 Encourage creativity</p>
-                    <p>🧸 Safe, guided play</p>
-                    <p>📖 Read together daily</p>
-                </div>
-                <div class="card" style="background: #FFF9C4;">
-                    <h3>Helpful Resources</h3>
-                    <p>📄 Monthly Calendar</p>
-                    <p>📋 Classroom Policies</p>
-                    <p>✅ Permission Forms</p>
-                    <p>🏥 Health & Safety</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="blog" class="page">
-        <div class="container">
-            <h1 class="title">Classroom News & Blog 📰</h1>
-            
-            <div class="blog-post">
-                <div class="blog-header">
-                    <h2 class="blog-title">Welcome to the Classroom 2025–2026! 🎉</h2>
-                    <p class="blog-date">📅 Posted: August 15, 2025</p>
-                </div>
-                
-                <div class="blog-content">
-                    <p>Dear Families,</p>
-                    
-                    <p>Welcome to an exciting new school year! I am absolutely thrilled to embark on this learning journey with your precious little ones. As we begin the 2025-2026 school year, I wanted to take a moment to introduce myself, share our classroom vision, and help you feel confident and excited about the wonderful year ahead.</p>
-                    
-                    <h3>🌟 About Our Classroom</h3>
-                    <p>Our 1-year-old classroom is designed to be a home away from home—a safe, nurturing space where your child can explore, discover, and grow at their own pace. Every corner of our room has been thoughtfully prepared with age-appropriate materials that encourage curiosity, creativity, and confidence.</p>
-                    
-                    <div class="highlight-box">
-                        <p><strong>🎯 Our Mission This Year:</strong></p>
-                        <p>To provide a loving, responsive environment where each child feels valued, safe, and eager to explore the world around them. We believe that through play, children develop the foundational skills they need for lifelong learning.</p>
+            <div class="container">
+                <div class="grid">
+                    <div class="card">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;" aria-hidden="true">🧸</div>
+                        <h3 data-en="Play & Learn" data-es="Juega y Aprende" data-fr="Jouer et Apprendre">Play & Learn</h3>
+                        <p data-en="Safe, engaging play-based learning activities designed for curious toddlers." data-es="Actividades de aprendizaje basadas en juegos seguros y atractivos diseñados para niños pequeños curiosos." data-fr="Des activités d'apprentissage basées sur le jeu sûres et attrayantes conçues pour les tout-petits curieux.">Safe, engaging play-based learning activities designed for curious toddlers.</p>
                     </div>
-                    
-                    <h3>📚 What Your Child Will Experience</h3>
-                    <p>This year, your little one will engage in a rich variety of developmentally appropriate activities designed to support their growth in all areas:</p>
-                    
-                    <ul>
-                        <li><strong>Sensory Exploration:</strong> Finger painting, water play, and texture discovery help develop fine motor skills and cognitive understanding</li>
-                        <li><strong>Language Development:</strong> Daily storytime, songs, and conversations build vocabulary and communication skills</li>
-                        <li><strong>Social-Emotional Growth:</strong> Learning to share, take turns, and express feelings in a supportive environment</li>
-                        <li><strong>Physical Development:</strong> Outdoor play, music and movement, and climbing activities strengthen gross motor skills</li>
-                        <li><strong>Creative Expression:</strong> Art, music, and dramatic play encourage imagination and self-expression</li>
-                    </ul>
-                    
-                    <h3>👨‍👩‍👧 Parent Partnership</h3>
-                    <p>Your involvement in your child's education is invaluable! Here's how we'll work together this year:</p>
-                    
-                    <ul>
-                        <li><strong>Daily Communication:</strong> You'll receive a daily sheet detailing meals, naps, activities, and special moments</li>
-                        <li><strong>Weekly Newsletters:</strong> Every Friday, you'll get updates on what we learned and upcoming events</li>
-                        <li><strong>Open Door Policy:</strong> You're always welcome to reach out with questions, concerns, or just to chat about your child's progress</li>
-                        <li><strong>Family Events:</strong> Watch for invitations to special celebrations and classroom activities throughout the year</li>
-                    </ul>
-                    
-                    <div class="highlight-box">
-                        <p><strong>💡 This Week's Parent Tip:</strong></p>
-                        <p>Help ease the transition by maintaining consistent morning routines at home. A predictable sequence (breakfast, getting dressed, saying goodbye) helps toddlers feel secure and ready for their day.</p>
+                    <div class="card">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;" aria-hidden="true">💡</div>
+                        <h3 data-en="Whole-Child Growth" data-es="Crecimiento del Niño Completo" data-fr="Développement Holistique de l'Enfant">Whole-Child Growth</h3>
+                        <p data-en="Academic, social-emotional, and physical development in every activity." data-es="Desarrollo académico, socioemocional y físico en cada actividad." data-fr="Développement académique, socio-émotionnel et physique dans chaque activité.">Academic, social-emotional, and physical development in every activity.</p>
                     </div>
-                    
-                    <h3>📅 Important Dates to Remember</h3>
-                    <ul>
-                        <li><strong>September 5:</strong> First day of school! Bring a family photo for our classroom family board</li>
-                        <li><strong>September 15:</strong> Parent Meet & Greet (6:00 PM)</li>
-                        <li><strong>September 20:</strong> School photos</li>
-                        <li><strong>October 31:</strong> Fall celebration and costume parade</li>
-                    </ul>
-                    
-                    <h3>🎒 First Day Checklist</h3>
-                    <p>Please bring the following items labeled with your child's name:</p>
-                    <ul>
-                        <li>Extra set of clothes (2-3 complete outfits)</li>
-                        <li>Diapers and wipes</li>
-                        <li>Comfort item (blanket, stuffed animal, or pacifier)</li>
-                        <li>Family photo for our classroom board</li>
-                        <li>Any special instructions (allergies, preferences, etc.)</li>
-                    </ul>
-                    
-                    <h3>💬 Let's Stay Connected</h3>
-                    <p>I believe that strong communication between home and school creates the best environment for your child's success. Please don't hesitate to reach out with any questions, concerns, or updates about your little one. I check my email daily and am always happy to schedule a quick call or meeting.</p>
-                    
-                    <div class="highlight-box">
-                        <p><strong>📧 Contact Me:</strong></p>
-                        <p>Email: krbeyale26@my.sanjuancollege.edu<br>
-                        Phone: 555-555-5555<br>
-                        Office Hours: 7:00 AM - 6:00 PM, Monday-Friday</p>
-                    </div>
-                    
-                    <p>I am truly honored to be a part of your child's early learning journey. Together, we will create a year filled with laughter, discovery, and precious memories. Thank you for entrusting me with your most treasured gift—your child.</p>
-                    
-                    <p>Here's to a wonderful year of growth, learning, and joy!</p>
-                    
-                    <p class="signature">With warmth and excitement,<br>Mrs. K 💕</p>
-                </div>
-            </div>
-
-            <div style="text-align: center; padding: 2rem; background: #FFF8E7; border-radius: 20px;">
-                <p style="font-size: 1.2rem; color: #FF6B9D;"><strong>Stay tuned for more updates throughout the year!</strong></p>
-                <p>Check back regularly for classroom news, learning highlights, and helpful parenting tips.</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="multimedia" class="page">
-        <div class="container">
-            <h1 class="title">Home Learning Videos 🎥</h1>
-            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3rem;">Fun songs, stories, and activities!</p>
-            
-            <div class="video-grid">
-                <div class="video-card">
-                    <div class="video-wrap">
-                        <iframe src="https://www.youtube.com/embed/Oq61TxejZ5g" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-info">
-                        <h3 style="color: #FF6B9D;">Sing Along Time 🎤</h3>
-                        <p>Fun songs for toddlers</p>
-                    </div>
-                </div>
-
-                <div class="video-card">
-                    <div class="video-wrap">
-                        <iframe src="https://www.youtube.com/embed/UEER3Qq19SY" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-info">
-                        <h3 style="color: #FF6B9D;">5-Minute Craft ✂️</h3>
-                        <p>Quick craft projects</p>
-                    </div>
-                </div>
-
-                <div class="video-card">
-                    <div class="video-wrap">
-                        <iframe src="https://www.youtube.com/embed/hMg80RmpmJc" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-info">
-                        <h3 style="color: #FF6B9D;">Storytime 📖</h3>
-                        <p>Engaging stories</p>
-                    </div>
-                </div>
-
-                <div class="video-card">
-                    <div class="video-wrap">
-                        <iframe src="https://www.youtube.com/embed/p430dZvd5aI" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-info">
-                        <h3 style="color: #FF6B9D;">Teach Through Play 🎯</h3>
-                        <p>Learning through play</p>
-                    </div>
-                </div>
-
-                <div class="video-card">
-                    <div class="video-wrap">
-                        <iframe src="https://www.youtube.com/embed/-mk4MiirzcI" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                    <div class="video-info">
-                        <h3 style="color: #FF6B9D;">Healthy Snacks 🍎</h3>
-                        <p>Toddler-friendly snacks</p>
+                    <div class="card">
+                        <div style="font-size: 2.5rem; margin-bottom: 1rem;" aria-hidden="true">👪</div>
+                        <h3 data-en="Family Involvement" data-es="Participación Familiar" data-fr="Implication Familiale">Family Involvement</h3>
+                        <p data-en="Strong parent communication and support every step of the way." data-es="Comunicación y apoyo parental fuerte en cada paso del camino." data-fr="Communication parentale solide et assistance à chaque étape du chemin.">Strong parent communication and support every step of the way.</p>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <script>
-        function show(pageId) {
-            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.getElementById(pageId).classList.add('active');
-            window.scrollTo(0, 0);
-        }
-    </script>
-</body>
-</html>
+        <!-- ABOUT PAGE -->
+        <div id="about" class="page">
+            <div class="container">
+                <h1 class="title" data-en="About Mrs. K 👩‍🏫" data-es="Acerca de la Sra. K 👩‍🏫" data-fr="À Propos de Mme K 👩‍🏫">About Mrs. K 👩‍🏫</h1>
+                <div class="card" style="background: #E3F2FD; margin-bottom: 2rem;">
+                    <p data-en="We strive to meet the needs of the whole child by providing a culturally sensitive, safe, and healthy environment. Every child develops academically, cognitively, socially-emotionally, and physically." data-es="Nos esforzamos por satisfacer las necesidades del niño completo proporcionando un ambiente culturalmente sensible, seguro y saludable. Cada niño se desarrolla académicamente, cognitivamente, socio-emocionalmente y físicamente." data-fr="Nous nous efforçons de répondre aux besoins de l'enfant dans sa globalité en fournissant un environnement culturellement sensible, sûr et sain. Chaque enfant se développe académiquement, cognitivement, socio-émotionnellement et physiquement.">We strive to meet the needs of the whole child by providing a culturally sensitive, safe, and healthy environment. Every child develops academically, cognitively, socially-emotionally, and physically.</p>
+                </div>
+                <div class="card">
+                    <h3 data-en="Meet Mrs. K" data-es="Conoce a la Sra. K" data-fr="Rencontre avec Mme K">Meet Mrs. K</h3>
+                    <p><strong data-en="Experience:" data-es="Experiencia:" data-fr="Expérience:">Experience:</strong> <span data-en="Years of education experience" data-es="Años de experiencia en educación" data-fr="Des années d'expérience en éducation">Years of education experience</span></p>
+                    <p><strong data-en="Fun Fact:" data-es="Dato Divertido:" data-fr="Fait Amusant:">Fun Fact:</strong> <span data-en="I love reading storybooks and doing crafts with toddlers!" data-es="¡Me encanta leer libros de cuentos e hacer manualidades con niños pequeños!" data-fr="J'adore lire des contes et faire des travaux manuels avec les tout-petits!">I love reading storybooks and doing crafts with toddlers!</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SCHEDULE PAGE -->
+        <div id="schedule" class="page">
+            <div class="container">
+                <h1 class="title" data-en="Daily Schedule 📅" data-es="Horario Diario 📅" data-fr="Horaire Quotidien 📅">Daily Schedule 📅</h1>
+                <table role="table">
+                    <thead>
+                        <tr>
+                            <th data-en="Time" data-es="Hora" data-fr="Heure">Time</th>
+                            <th data-en="Activity" data-es="Actividad" data-fr="Activité">Activity</th>
+                            <th data-en="Icon" data-es="Icono" data-fr="Icône">Icon</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>7:00 AM</td><td data-en="Drop Off" data-es="Entrega" data-fr="Dépôt">Drop Off</td><td aria-label="Door">🚪</td></tr>
+                        <tr><td>8:00 AM</td><td data-en="Breakfast" data-es="Desayuno" data-fr="Petit-déjeuner">Breakfast</td><td aria-label="Plate">🍽️</td></tr>
+                        <tr><td>8:30 AM</td><td data-en="Free Play" data-es="Juego Libre" data-fr="Jeu Libre">Free Play</td><td aria-label="Toy">🧸</td></tr>
+                        <tr><td>9:00 AM</td><td data-en="Playground" data-es="Patio de Juegos" data-fr="Terrain de Jeu">Playground</td><td aria-label="Playground">🛝</td></tr>
+                        <tr><td>10:00 AM</td><td data-en="Free Play" data-es="Juego Libre" data-fr="Jeu Libre">Free Play</td><td aria-label="Art">🎨</td></tr>
+                        <tr><td>11:00 AM</td><td data-en="Lunch" data-es="Almuerzo" data-fr="Déjeuner">Lunch</td><td aria-label="Sandwich">🥪</td></tr>
+                        <tr><td>12:00 PM</td><td data-en="Nap Time" data-es="Hora de la Siesta" data-fr="Heure de la Sieste">Nap Time</td><td aria-label="Sleep">💤</td></tr>
+                        <tr><td>2:00 PM</td><td data-en="Wake Up / Snack" data-es="Despertar / Merienda" data-fr="Réveil / Collation">Wake Up /
